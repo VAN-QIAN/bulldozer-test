@@ -1,0 +1,37 @@
+# "version" is the configuration version, currently "1".
+version: 1
+
+# "merge" defines how and when pull requests are merged. If the section is
+# missing, bulldozer will consider all pull requests and use default settings.
+merge:
+  trigger:
+    labels: ["Merge"]
+  ignore:
+    labels: ["DO_NOT_MERGE", "SKIP_ALL"]
+    comment_substrings: ["==DO_NOT_MERGE=="]
+  method: squash
+  branch_method:
+    develop: squash
+    main: squash
+  options:
+    squash:
+      title: "pull_request_title"
+      body: "summarize_commits"
+      message_delimiter: ==COMMIT_MSG==
+  delete_after_merge: true
+  allow_merge_with_no_checks: true
+
+update:
+  # "trigger" defines the set of pull requests that should be updated by
+  # bulldozer. It accepts the same keys as the trigger in the "merge" block.
+  trigger:
+    labels: ["WIP", "Update Me"]
+
+  # "ignore" defines the set of pull requests that should not be updated by
+  # bulldozer. It accepts the same keys as the ignore in the "merge" block.
+  ignore:
+    labels: ["Do Not Update"]
+
+  # If true, bulldozer will ignore updating draft pull requests, unless they
+  # explicitly match a configured trigger condition.
+  ignore_drafts: false
