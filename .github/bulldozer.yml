@@ -19,9 +19,3 @@ merge:
   delete_after_merge: true
   allow_merge_with_no_checks: true
 
-update:
-  trigger:
-    labels: ["WIP", "Update Me"]
-  ignore:
-    labels: ["Do Not Update"]
-  ignore_drafts: false
