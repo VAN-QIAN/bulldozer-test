@@ -1,3 +1,1 @@
-# bulldpzer-test
-
-Test config
+# bulldozer-test
