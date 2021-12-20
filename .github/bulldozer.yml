@@ -1,4 +1,3 @@
-
 version: 1
 
 merge:
@@ -9,9 +8,18 @@ merge:
     labels: ["do not merge"]
     comment_substrings: ["==DO_NOT_MERGE=="]
   method: squash
+  branch_method:
+    develop: squash
+    master: merge
   options:
     squash:
+      title: pull_request_title
+      body: empty_body
+      message_delimiter: ==COMMIT_MSG==
+    merge:
+      title: pull_request_title
       body: summarize_commits
+      message_delimiter: ==COMMIT_MSG==
   delete_after_merge: true
   allow_merge_with_no_checks: false
 
