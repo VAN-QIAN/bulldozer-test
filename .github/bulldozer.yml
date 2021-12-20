@@ -21,7 +21,7 @@ merge:
       body: summarize_commits
       message_delimiter: ==COMMIT_MSG==
   delete_after_merge: true
-  allow_merge_with_no_checks: false
+  allow_merge_with_no_checks: true
 
 update:
   trigger:
