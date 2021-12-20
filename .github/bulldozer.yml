@@ -1,4 +1,3 @@
-
 version: 1
 
 merge:
@@ -8,12 +7,9 @@ merge:
   ignore:
     labels: ["do not merge"]
     comment_substrings: ["==DO_NOT_MERGE=="]
-  method: squash
-  options:
-    squash:
-      body: summarize_commits
+  method: merge
   delete_after_merge: true
-  allow_merge_with_no_checks: false
+  allow_merge_with_no_checks: true
 
 update:
   trigger:
